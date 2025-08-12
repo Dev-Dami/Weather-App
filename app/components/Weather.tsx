@@ -72,7 +72,7 @@ const getSuggestedCities = (currentInput: string): string[] => {
         return matchedCities.slice(0, 6);
     }
 
-    return ["New York", "London", "Tokyo", "Paris", "Sydney", "Dubai"];
+    return ["New York", "London"];
 };
 
 interface CitySearchWithLocationProps {
@@ -148,7 +148,7 @@ const CitySearchWithLocation: React.FC<CitySearchWithLocationProps> = ({ onSearc
                     />
                     <button
                         onClick={handleSearch}
-                        className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+                        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-300"
                     >
                         Get Weather
                     </button>
@@ -282,6 +282,9 @@ const Weather = () => {
                             />
                             <div className="text-3xl mb-1">
                                 {weather.current.temp_c}°C
+                                <span className="text-lg text-gray-500 ml-1">
+                                    ({weather.current.temp_c * 9 / 5 + 32}°F)
+                                </span>
                             </div>
                             <div className="text-md font-bold mb-2">
                                 {weather.current.condition.text}
