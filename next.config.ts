@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
+// @ts-expect-error - No type defs for next-pwa
+import withPWAInit from "next-pwa";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const withPWA = withPWAInit({
+  dest: "public",
+  register: true,
+  skipWaiting: true
+});
+
+const config: NextConfig = {
+  reactStrictMode: true,
 };
 
-export default nextConfig;
+export default withPWA(config);
