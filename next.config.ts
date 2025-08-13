@@ -12,4 +12,5 @@ const config: NextConfig = {
   reactStrictMode: true,
 };
 
+// @ts-ignore
 export default withPWA(config);
